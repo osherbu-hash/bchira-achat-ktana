@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>בחירה אחת קטנה · אורית בן שפר</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Assistant:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F2ECD7;
+    --bg-warm: #EAE2C8;
+    --card: #FBF6EA;
+    --ink: #1A2A3F;
+    --ink-soft: #4D5E76;
+    --ink-muted: #8492A6;
+    --accent: #2664A0;
+    --accent-deep: #143E5F;
+    --accent-soft: #93B5D4;
+    --bougainvillea: #C73E7E;
+    --bougainvillea-deep: #9F2860;
+    --line: #D2C7AB;
+    --line-soft: #E2D9C0;
+    --whatsapp: #128C7E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'Assistant', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    direction: rtl;
+    position: relative;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(ellipse at 15% 20%, rgba(38, 100, 160, 0.07) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 80%, rgba(199, 62, 126, 0.06) 0%, transparent 55%);
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.45;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.27 0 0 0 0 0.18 0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  .app { min-height: 100vh; display: flex; flex-direction: column; position: relative; z-index: 1; }
+
+  .header {
+    padding: 22px 22px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .brand { display: flex; align-items: flex-start; gap: 11px; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .brand-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+  }
+  .brand-by {
+    font-family: 'Assistant', sans-serif;
+    font-size: 10.5px;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    margin-top: 3px;
+  }
+  .brand-mark {
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+    animation: breathe 4s ease-in-out infinite;
+  }
+  .brand-mark::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: var(--bougainvillea);
+    border-radius: 50%;
+  }
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.12); opacity: 0.85; }
+  }
+  .counter {
+    font-family: 'Assistant', sans-serif;
+    font-size: 12px;
+    color: var(--ink-muted);
+    text-align: left;
+    margin-top: 2px;
+  }
+  .counter strong {
+    color: var(--bougainvillea-deep);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 36px 22px 24px;
+    max-width: 560px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .hero {
+    text-align: center;
+    margin-bottom: 36px;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow {
+    font-family: 'Assistant', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--accent-deep);
+    margin-bottom: 18px;
+    font-weight: 500;
+    line-height: 1.6;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: clamp(34px, 9vw, 54px);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--ink);
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--bougainvillea-deep);
+    font-weight: 300;
+  }
+  .hero-sub {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .card-wrap { width: 100%; max-width: 440px; position: relative; }
+  .choice-card {
+    background: var(--card);
+    border-radius: 4px;
+    padding: 40px 30px 34px;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.7) inset,
+      0 24px 48px -22px rgba(74, 50, 30, 0.28),
+      0 6px 16px -10px rgba(74, 50, 30, 0.18);
+    position: relative;
+    border: 1px solid rgba(201, 184, 156, 0.45);
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  }
+  .choice-card.entering { transform: translateY(10px); opacity: 0; }
+
+  .card-corner { position: absolute; top: 14px; width: 20px; height: 20px; }
+  .card-corner.tr { right: 14px; border-top: 1px solid var(--line); border-right: 1px solid var(--line); }
+  .card-corner.tl { left: 14px;  border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .card-corner.br { right: 14px; top: auto; bottom: 14px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); }
+  .card-corner.bl { left: 14px;  top: auto; bottom: 14px; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); }
+
+  .card-mark { display: flex; justify-content: center; margin-bottom: 16px; }
+  .card-mark svg { width: 22px; height: 22px; }
+  .card-cat {
+    font-family: 'Assistant', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 22px;
+    text-align: center;
+  }
+  .card-choice {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 26px;
+    letter-spacing: -0.005em;
+  }
+  .card-divider {
+    height: 1px;
+    background: var(--line);
+    width: 38px;
+    margin: 0 auto 20px;
+    opacity: 0.55;
+  }
+  .card-why {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-style: italic;
+    font-size: 15.5px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    text-align: center;
+    line-height: 1.65;
+  }
+
+  .cta-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    margin-top: 6px;
+  }
+  .btn-cta {
+    padding: 20px 40px;
+    font-size: 18px;
+    background: var(--accent-deep);
+    color: var(--card);
+    border: none;
+    border-radius: 999px;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    cursor: pointer;
+    box-shadow:
+      0 12px 28px -10px rgba(20, 62, 95, 0.55),
+      0 2px 0 rgba(255, 255, 255, 0.08) inset;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    animation: pulseGentle 3.4s ease-in-out infinite;
+  }
+  .btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 16px 32px -10px rgba(20, 62, 95, 0.6),
+      0 2px 0 rgba(255, 255, 255, 0.08) inset;
+  }
+  .btn-cta:active { transform: translateY(0); }
+  @keyframes pulseGentle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.025); }
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 26px;
+    width: 100%;
+    max-width: 440px;
+  }
+  .btn {
+    flex: 1;
+    padding: 16px 18px;
+    border: none;
+    border-radius: 999px;
+    font-family: 'Assistant', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .btn-primary { background: var(--accent-deep); color: var(--card); }
+  .btn-primary:hover { background: #0A2840; transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent-deep); }
+
+  .affirmation {
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--bougainvillea-deep);
+    margin-top: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(8px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    line-height: 1.5;
+    max-width: 380px;
+  }
+  .affirmation.show {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 100px;
+    margin-top: 22px;
+  }
+
+  .categories {
+    padding: 18px 22px 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    justify-content: center;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .cat-chip {
+    padding: 7px 13px;
+    border-radius: 999px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-family: 'Assistant', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .cat-chip.active {
+    background: var(--ink);
+    color: var(--card);
+    border-color: var(--ink);
+  }
+  .cat-chip:hover:not(.active) {
+    border-color: var(--accent);
+    color: var(--accent-deep);
+  }
+
+  .quote {
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-muted);
+    margin-top: 26px;
+    max-width: 380px;
+    line-height: 1.5;
+    padding: 0 12px;
+  }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 36px auto 28px;
+    max-width: 320px;
+  }
+  .ornament .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to left, transparent, var(--line) 30%, var(--line) 70%, transparent);
+  }
+  .ornament .glyph {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 18px;
+    color: var(--accent);
+    opacity: 0.7;
+  }
+
+  .invite { max-width: 480px; margin: 0 auto 12px; padding: 0 22px; }
+  .invite-card {
+    background: linear-gradient(180deg, rgba(251, 246, 232, 0.6) 0%, rgba(251, 246, 232, 0.95) 100%);
+    border: 1px solid var(--line-soft);
+    border-radius: 6px;
+    padding: 32px 28px 28px;
+    text-align: center;
+    position: relative;
+  }
+  .invite-eyebrow {
+    font-family: 'Assistant', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .invite-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .invite-tagline {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--bougainvillea-deep);
+    margin-bottom: 20px;
+  }
+  .invite-text {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 15.5px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 24px;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 14px 26px;
+    background: var(--whatsapp);
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 999px;
+    font-family: 'Assistant', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 20px -8px rgba(18, 140, 126, 0.45);
+  }
+  .btn-whatsapp:hover {
+    background: #0E6F66;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px -8px rgba(18, 140, 126, 0.55);
+  }
+  .btn-whatsapp svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+  .invite-signature {
+    margin-top: 22px;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 13px;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+  .invite-signature strong { font-style: normal; color: var(--ink-soft); font-weight: 500; }
+
+  .footer {
+    text-align: center;
+    padding: 24px 22px 28px;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+  .footer .dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: var(--line);
+    border-radius: 50%;
+    margin: 0 8px;
+    vertical-align: middle;
+  }
+  .footer-credit {
+    margin-top: 14px;
+    font-family: 'Assistant', sans-serif;
+    font-style: normal;
+    font-size: 11.5px;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+  .footer-credit strong { color: var(--ink-soft); font-weight: 500; }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 480px) {
+    .header { padding: 18px 18px 0; }
+    .main { padding: 28px 18px 18px; }
+    .choice-card { padding: 32px 22px 28px; }
+    .card-choice { font-size: 20px; }
+    .card-why { font-size: 14.5px; }
+    .btn-cta { padding: 18px 32px; font-size: 17px; }
+    .hero-sub { font-size: 16px; }
+    .categories { padding: 14px 16px 4px; }
+    .invite { padding: 0 16px; }
+    .invite-card { padding: 26px 20px 22px; }
+    .invite-title { font-size: 22px; }
+    .invite-text { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div class="brand-text">
+        <span class="brand-title">בחירה אחת קטנה</span>
+        <span class="brand-by">מאת אורית בן שפר</span>
+      </div>
+    </div>
+    <div class="counter">
+      בחירות שעשית: <strong id="count">0</strong>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <div class="hero" id="hero">
+      <div class="hero-eyebrow">לרגעים של תקיעות או מצבי אי ודאות כמו מלחמה</div>
+      <h1 class="hero-title">בחירה אחת.<br><em>קטנה. שלך.</em></h1>
+      <p class="hero-sub">גם כשהמצב מפחיד או מבלבל ויצאנו משגרה, בחירה אחת קטנה ועוד אחת יכולות להחזיר אותנו לתלם.</p>
+    </div>
+
+    <div class="card-wrap hidden" id="cardWrap">
+      <article class="choice-card" id="card">
+        <span class="card-corner tl"></span>
+        <span class="card-corner tr"></span>
+        <span class="card-corner bl"></span>
+        <span class="card-corner br"></span>
+        <div class="card-mark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="12" cy="6" r="1.6" fill="#2664A0"/>
+            <circle cx="6.5" cy="16" r="1.6" fill="#C73E7E" opacity="0.6"/>
+            <circle cx="17.5" cy="16" r="1.6" fill="#C73E7E" opacity="0.6"/>
+            <path d="M12 7.6 L7 14.4 M12 7.6 L17 14.4" stroke="#D2C7AB" stroke-width="0.7" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="card-cat" id="cardCat"></div>
+        <p class="card-choice" id="cardChoice"></p>
+        <div class="card-divider"></div>
+        <p class="card-why" id="cardWhy"></p>
+      </article>
+    </div>
+
+    <div class="cta-wrap" id="ctaWrap">
+      <button class="btn-cta" id="ctaBtn">תני לי בחירה אחת</button>
+    </div>
+
+    <div class="actions hidden" id="actions">
+      <button class="btn btn-secondary" id="anotherBtn">עוד אחת</button>
+      <button class="btn btn-primary" id="doneBtn">עשיתי</button>
+    </div>
+
+    <p class="affirmation" id="affirmation"></p>
+    <p class="quote" id="quote"></p>
+
+  </main>
+
+  <div class="categories" id="categories"></div>
+
+  <div class="ornament" aria-hidden="true">
+    <span class="line"></span>
+    <span class="glyph">❦</span>
+    <span class="line"></span>
+  </div>
+
+  <section class="invite">
+    <div class="invite-card">
+      <div class="invite-eyebrow">המרחב של אורית</div>
+      <h2 class="invite-title">מרחב הבחירה</h2>
+      <p class="invite-tagline">להיות מי שאני רוצה</p>
+      <p class="invite-text">אם הכלי הזה דיבר אלייך, יש מקום לנשים כמוך שרוצות לבחור ולממש רצונות מתוך שלמות ובטחון. שיתוף, נוכחות, וזכירה הדדית שיש לנו בחירה.</p>
+      <a class="btn-whatsapp" href="https://chat.whatsapp.com/DrEXVZuAV9nCjhObzoaLAh" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        <span>הצטרפי לקבוצת הוואטסאפ</span>
+      </a>
+      <p class="invite-signature">בהנחיית <strong>אורית בן שפר</strong></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    בכל רגע יש בחירה<span class="dot"></span>וכל בחירה ניתנת לשינוי
+    <div class="footer-credit">© <strong>אורית בן שפר</strong> · עורכת דין, מנחת חיים ומרחב הבחירה</div>
+  </footer>
+
+</div>
+
+<script>
+  const CHOICES = [
+    { cat: 'גוף', text: 'קחי שלוש נשימות. שאיפה לארבע, החזקה לשבע, נשיפה לשמונה.', why: 'הנשימה היא הבחירה הראשונה והאחרונה שתמיד שלך.' },
+    { cat: 'גוף', text: 'הניחי כפות רגליים יחפות על הרצפה לדקה. הרגישי את הקרקע מתחתייך.', why: 'כשהגוף יודע שיש מתחתיו אדמה, הראש מפסיק לרחף.' },
+    { cat: 'גוף', text: 'עמדי ומתחי את כל הגוף כמו חתולה שמתעוררת. מהאצבעות עד הקודקוד.', why: 'גוף סגור מספר לראש שאנחנו בסכנה. פתחי אותו.' },
+    { cat: 'גוף', text: 'שתי כוס מים. לאט. הרגישי את הטעם, את הטמפרטורה, את הבליעה.', why: 'אקט קטן של דאגה לעצמך הוא כבר בחירה.' },
+    { cat: 'גוף', text: 'סובבי את הצוואר שלוש פעמים לכל כיוון, בעדינות.', why: 'הצוואר מחזיק יותר ממה שמגיע לו.' },
+    { cat: 'גוף', text: 'תני לעצמך חיבוק חזק לעשרים שניות. הגוף לא יודע שזו את.', why: 'מערכת העצבים שלך לא מבחינה. רק מקבלת.' },
+    { cat: 'גוף', text: 'צאי החוצה לדקה אחת בלבד. שאפי אוויר בכוונה, פעם אחת.', why: 'הצעד הקצר מבפנים החוצה הוא לפעמים המרחק הגדול ביותר.' },
+    { cat: 'גוף', text: 'רחצי פנים במים קרים. תחושה חדה, התחלה חדשה.', why: 'המים יודעים לאתחל.' },
+    { cat: 'גוף', text: 'הזיזי את הכתפיים: למעלה, אחורה, למטה. שלוש פעמים בכוונה.', why: 'הכתפיים זוכרות הכל. שחררי אותן ולו לרגע.' },
+    { cat: 'גוף', text: 'שטפי ידיים במים חמימים למשך דקה שלמה. הרגישי את הזרימה.', why: 'דאגה לעצמך מתחילה בתנועות שאת כבר עושה, רק יותר בנוכחות.' },
+    { cat: 'גוף', text: 'שתי קצת קפה או תה לאט. גלגלי את הטעם על הלשון.', why: 'ההנאה היא הוכחה לחיים. לא מותרות.' },
+    { cat: 'גוף', text: 'עסי את כפות הידיים זו בזו במעגלים. שלושים שניות.', why: 'המגע העצמי הזה משחרר חרדה דרך עצבי כף היד.' },
+    { cat: 'גוף', text: 'שכבי על הגב לדקה. תני לרצפה להחזיק אותך.', why: 'לא הכל צריך להחזיק את עצמו. תני לכוח המשיכה לעבוד.' },
+    { cat: 'גוף', text: 'הזיזי את האצבעות אחת אחת. כמו פסנתרנית.', why: 'תשומת לב לחלק קטן בגוף מחזירה אותך לתוכו.' },
+    { cat: 'גוף', text: 'לחצי בעוצמה על הנקודה בין האגודל לאצבע המורה למשך עשר שניות.', why: 'נקודות לחיצה הן דלת פתוחה למערכת העצבים.' },
+    { cat: 'גוף', text: 'החליפי לבגד אחד נוח. אפילו רק גרביים חמים.', why: 'הגוף מקשיב לבד שעוטף אותו.' },
+    { cat: 'גוף', text: 'שכבי על הצד לחמש דקות עם הברכיים מקופלות לכיוון החזה.', why: 'תנוחת עובר היא לא רגרסיה, היא טעינה.' },
+    { cat: 'גוף', text: 'נשפי חזק החוצה דרך הפה, עם קול. שלוש פעמים.', why: 'קול הוא בחירה. גם של מערכת העצבים.' },
+    { cat: 'גוף', text: 'עמדי על קצות האצבעות, ירדי. עשר פעמים.', why: 'תנועה קטנה ואיכותית מזיזה דם, מחשבה, ואנרגיה.' },
+    { cat: 'גוף', text: 'סרקי את שערך באצבעות לדקה. בעדינות.', why: 'הראש מחזיק את כל הסיפורים. תני לו רוך.' },
+
+    { cat: 'רגש', text: 'שאלי את עצמך: "מה אני באמת מרגישה כרגע?" וכתבי מילה אחת בלבד.', why: 'מילה אחת בכתב ברורה ממאה במחשבה.' },
+    { cat: 'רגש', text: 'תני לרגש שמציק לך שם, גיל וצבע. הוא ילד, לא מפלצת.', why: 'מה שיש לו שם נשאר במקומו. מה שאין לו, מתפזר.' },
+    { cat: 'רגש', text: 'כתבי משפט אחד שמתחיל ב"מותר לי..." ותראי מה יוצא.', why: 'הרבה תקיעות זה רשימה ארוכה של דברים שאסרת על עצמך.' },
+    { cat: 'רגש', text: 'דמייני שאת חברה טובה של עצמך. מה הייתה אומרת לך עכשיו?', why: 'את יודעת לרכך אחרים. הגיע הזמן ליישם על עצמך.' },
+    { cat: 'רגש', text: 'הניחי יד על הלב, יד על הבטן. שאלי: "מה את צריכה?"', why: 'הגוף יודע לפני שהראש מבין.' },
+    { cat: 'רגש', text: 'שמעי שיר אחד שמרגש אותך, מההתחלה ועד הסוף.', why: 'מוזיקה היא קיצור דרך לרגש שלא מצאת לו מילים.' },
+    { cat: 'רגש', text: 'אמרי בקול: "מותר לי להרגיש ככה". פעם אחת, בקול.', why: 'מה שלא מותר נשאר בחוץ. מה שמותר יכול לעבור.' },
+    { cat: 'רגש', text: 'אם דמעה באה, תני לה לבוא. אם לא, גם זה בסדר.', why: 'הדמעות הן דלת. אבל לא חייבים לפתוח עכשיו.' },
+    { cat: 'רגש', text: 'רשמי שלוש מילים שאת מרגישה עכשיו. בלי לפרש, בלי לתקן.', why: 'הרשימה הקצרה הזו היא תמונת מצב. הסכימי לראות אותה.' },
+    { cat: 'רגש', text: 'שאלי: "ממה אני מנסה להתחמק כרגע?" כתבי משפט אחד.', why: 'מה שאת מתחמקת ממנו, רודף אחרייך. הסתכלי עליו דקה.' },
+    { cat: 'רגש', text: 'אם הרגש שלך היה מזג אוויר עכשיו, מה היה? רשמי.', why: 'המטאפורה היא גשר בין הראש לרגש. גם מזג אוויר עובר.' },
+    { cat: 'רגש', text: 'כתבי לעצמך הודעה אחת של תמיכה, כאילו מחברה אהובה.', why: 'את אישה שיודעת לתת. הגיעה השעה גם לקבל.' },
+    { cat: 'רגש', text: 'בכי אם בא לך לבכות. צחקי אם בא לך לצחוק. אל תנהלי.', why: 'ניהול רגשות זה לפעמים שם יפה לדיכוי רגשות.' },
+    { cat: 'רגש', text: 'השלימי: "הכי קשה לי עכשיו ש..."', why: 'לקרוא בשם לקושי זה לא לעצור אותו. זה לתפוס לו ידית.' },
+    { cat: 'רגש', text: 'שאלי: "מה הילדה שבי צריכה לשמוע עכשיו?" ועני לה.', why: 'את הילדה הזו. את גם המבוגרת שיודעת לדבר אליה.' },
+    { cat: 'רגש', text: 'דמייני מעטפת אור חם שעוטפת אותך. רק לרגע אחד.', why: 'הדמיון הוא משאב אמיתי. הגוף לא מבחין.' },
+    { cat: 'רגש', text: 'רשמי דבר אחד שהיית רוצה לסלוח לעצמך עליו.', why: 'סליחה עצמית היא לא חולשה. היא תנאי לחופש.' },
+    { cat: 'רגש', text: 'דברי על הרגש בגוף שלישי: "היא מרגישה...". זה משחרר.', why: 'מרחק לשוני הוא מרחק רגשי. ולפעמים גם הקלה.' },
+    { cat: 'רגש', text: 'אמרי תודה לרגש שמציק לך. הוא ניסה להגן עלייך.', why: 'אף רגש הוא לא אויב. הוא רק שליח שמחפש מקבל.' },
+    { cat: 'רגש', text: 'כתבי מה כן שלם בך כרגע. רק דבר אחד.', why: 'גם כשמשהו שבור, יש בך הרבה שלא.' },
+
+    { cat: 'סביבה', text: 'הזיזי חפץ אחד במקום שאת נמצאת בו. רק אחד.', why: 'הסביבה משקפת את התודעה. שני אותה ותראי.' },
+    { cat: 'סביבה', text: 'פתחי חלון או הזיזי וילון. הכניסי אור.', why: 'אור לא משנה עובדות. הוא משנה את היכולת שלך להחזיק אותן.' },
+    { cat: 'סביבה', text: 'הדליקי נר אחד. סמני את הרגע הזה כמשהו.', why: 'טקסים קטנים מזכירים לך שאת בעלת השליטה על הרגע.' },
+    { cat: 'סביבה', text: 'סדרי פינה אחת קטנה. לא חדר, פינה.', why: 'סדר במטר אחד הוא סדר ראשון.' },
+    { cat: 'סביבה', text: 'הקיפי את עצמך בשני חפצים שאת אוהבת. שימי אותם קרוב.', why: 'הסביבה תהיה לטובתך אם תכווני אותה.' },
+    { cat: 'סביבה', text: 'הוציאי מהבית דבר אחד שלא משרת אותך יותר.', why: 'כל מה שעוזב, פותח מקום למה שיבוא.' },
+    { cat: 'סביבה', text: 'החליפי תאורה. הדליקי מנורה קטנה במקום אור ראשי.', why: 'אור רך מאפשר רוך פנימי.' },
+    { cat: 'סביבה', text: 'שטפי כלי אחד עכשיו. רק אחד.', why: 'משימה קטנה שהושלמה היא הוכחה לעצמך שאת מסוגלת.' },
+    { cat: 'סביבה', text: 'שטפי משטח אחד. שולחן, כיור, מה שאת רואה.', why: 'משטח נקי הוא לא ניקיון. הוא הצהרה.' },
+    { cat: 'סביבה', text: 'הוסיפי ריח לחלל. נר, שמן, קפה טרי, צמח.', why: 'חוש הריח נכנס ישירות לרגש. ניצלי את זה.' },
+    { cat: 'סביבה', text: 'נגבי את הרצפה במטר אחד. רק אחד.', why: 'תנועה קטנה והיא יוצאה.' },
+    { cat: 'סביבה', text: 'סדרי את המיטה, גם אם עוד תשני בה.', why: 'את חוזרת בערב למיטה מסודרת. את נותנת לעצמך מתנה לעתיד.' },
+    { cat: 'סביבה', text: 'הזיזי כיסא אחד למקום אחר. נסי תצוגה חדשה של החדר.', why: 'נקודת מבט פיזית חדשה פותחת נקודת מבט מנטלית.' },
+    { cat: 'סביבה', text: 'עטפי את עצמך בשמיכה. גם אם חם.', why: 'הגוף מבקש להרגיש מוחזק. תני לו.' },
+    { cat: 'סביבה', text: 'סגרי מקור רעש אחד. טלוויזיה, התראות, חלון פתוח לרחוב.', why: 'שקט הוא בחירה. ולפעמים נדרשת.' },
+    { cat: 'סביבה', text: 'שימי פרח אחד או ענף אחד בכלי. גם מהחצר.', why: 'יופי לא צריך להיות מושלם. הוא צריך להיות נוכח.' },
+    { cat: 'סביבה', text: 'צרי פינת אור. מקום אחד בבית שבו האור נופל יפה.', why: 'מקום יפה אחד הוא עוגן ליום שלם.' },
+    { cat: 'סביבה', text: 'סדרי את שולחן העבודה לשלוש דקות בלבד. עצרי.', why: 'הסביבה משפיעה על הריכוז, גם בדקה הראשונה.' },
+    { cat: 'סביבה', text: 'בחרי כוס יפה לשתות בה היום. לא הראשונה שתפסת.', why: 'בחירה אסתטית קטנה היא אקט של כבוד עצמי.' },
+    { cat: 'סביבה', text: 'החליפי סדינים אם אפשר. אם לא, רק את הציפית.', why: 'בד נקי הוא תזכורת לגוף שמותר לו לנוח.' },
+
+    { cat: 'קשרים', text: 'שלחי הודעה קצרה לאדם שעולה לך עכשיו. "חשבתי עלייך" זה מספיק.', why: 'קשר נשמר בנגיעות קטנות, לא בנאומים.' },
+    { cat: 'קשרים', text: 'סרבי לבקשה אחת היום. בנימוס. בלי הסבר ארוך.', why: 'כל "לא" קטן הוא תרגול של "כן" לעצמך.' },
+    { cat: 'קשרים', text: 'הודי לעצמך על דבר אחד שעשית השבוע.', why: 'אם את לא תכירי בעצמך, אף אחד לא יעשה את זה במקומך.' },
+    { cat: 'קשרים', text: 'כתבי שם של אדם שהקשר איתו מרגיש כמו מטען. רק כתבי. בלי לעשות.', why: 'לראות שחור על גבי לבן זה כבר חצי מהדרך.' },
+    { cat: 'קשרים', text: 'אמרי "כן" לדבר אחד שדחית הרבה זמן.', why: 'דחייה היא לפעמים פחד מהבחירה, לא חוסר רצון.' },
+    { cat: 'קשרים', text: 'בקשי עזרה קטנה. ממש קטנה. ממש ממישהו.', why: 'לבקש זו בחירה. רוב האנשים אוהבים לתת.' },
+    { cat: 'קשרים', text: 'הניחי את הטלפון לרבע שעה. רק את. רק עכשיו.', why: 'נוכחות במציאות שלך היא הבחירה הראשונה לחיים שלך.' },
+    { cat: 'קשרים', text: 'אמרי לעצמך משהו טוב באוזן, כאילו את מדברת לחברה.', why: 'הקול שלך הוא הקול שאת שומעת הכי הרבה. שווה שיהיה אדיב.' },
+    { cat: 'קשרים', text: 'כתבי שם של אדם שאת אסירת תודה לו. בלב או בדף.', why: 'הכרת תודה היא לא נימוס. היא תרופה.' },
+    { cat: 'קשרים', text: 'שלחי לב או אימוג\'י אחד למישהו. בלי מילים.', why: 'לפעמים סימן קטן אומר יותר ממשפט מתוכנן.' },
+    { cat: 'קשרים', text: 'תני מחמאה כנה היום למישהו. אחת מספיקה.', why: 'מחמאה היא בחירה לראות את הטוב. ולהגיד אותו.' },
+    { cat: 'קשרים', text: 'אמרי בקול את שם החברה הכי טובה שלך. רק את השם.', why: 'שמות אהובים מחזירים שייכות בלי לעשות כלום.' },
+    { cat: 'קשרים', text: 'כתבי שלוש מילים על מה שאת מצפה ממישהו ולא אמרת.', why: 'מה שלא מבטאות הופך אכזבה. דברי בלב לפחות, אחר כך בקול.' },
+    { cat: 'קשרים', text: 'תני מרחק לקשר אחד שלא משרת אותך. אפילו רק בראש שלך.', why: 'מרחק מנטלי הוא תחילה של מרחק אמיתי.' },
+    { cat: 'קשרים', text: 'כתבי משפט שמתחיל ב"אני סולחת ל..." או "אני מבקשת סליחה מ..."', why: 'הסליחה היא שלך, גם אם אף אחד לא יודע עליה.' },
+    { cat: 'קשרים', text: 'אמרי "תודה" למישהו על משהו ספציפי, לא כללי.', why: 'תודה ספציפית נכנסת ללב. תודה כללית מתעופפת.' },
+    { cat: 'קשרים', text: 'שלחי מתנה דיגיטלית קטנה למישהו. תמונה, שיר, ציטוט.', why: 'נתינה קטנה היא תזכורת שיש לך מה לתת.' },
+    { cat: 'קשרים', text: 'הקדישי שיחה אחת לשמיעה בלבד. בלי לנסח את התגובה תוך כדי.', why: 'נוכחות אמיתית באחר מחזירה גם אותך לעצמך.' },
+    { cat: 'קשרים', text: 'בקשי חיבוק ממישהו קרוב. ממש בקשי. בלי תירוצים.', why: 'הצורך במגע הוא אנושי. לא תלות.' },
+    { cat: 'קשרים', text: 'שלחי הודעה מרגיעה לעצמך, כאילו מהעתיד. "יהיה בסדר" מספיק.', why: 'את העתיד הזה. ואת יודעת מה שווה לשמוע.' },
+
+    { cat: 'מחשבה', text: 'השלימי: "אם הייתי בוחרת לעצמי עכשיו, הייתי בוחרת ב..."', why: 'התשובה הראשונה היא בדרך כלל הנכונה.' },
+    { cat: 'מחשבה', text: 'רשמי שלושה דברים שכבר בחרת היום, גם אם הם קטנטנים.', why: 'את בוחרת כל היום. רק לא תמיד שמת לב.' },
+    { cat: 'מחשבה', text: 'שאלי: "מה הכי קטן שאני יכולה לעשות ועדיין יזיז משהו?"', why: 'הרבה אנשים תקועים כי הם מחפשים את הצעד הגדול.' },
+    { cat: 'מחשבה', text: 'מה הסיפור שאת מספרת לעצמך עכשיו? כתבי משפט. נסי לכתוב סיפור שני לאותו רגע.', why: 'הסיפור הוא בחירה. אפילו כשהוא נשמע כמו אמת.' },
+    { cat: 'מחשבה', text: 'השלימי: "אני לא חייבת..."', why: 'הרשימה הזו ארוכה ממה שחשבת. וכל פריט בה הוא חופש.' },
+    { cat: 'מחשבה', text: 'שאלי: "אם זה היה מסע ולא משבר, איפה אני בעלילה?"', why: 'הסיפור משתנה לפי איך שאת קוראת לו.' },
+    { cat: 'מחשבה', text: 'כתבי שאלה אחת שאת מפחדת לשאול את עצמך. רק את השאלה. בלי לענות.', why: 'השאלה היא חצי מהתשובה.' },
+    { cat: 'מחשבה', text: 'רשמי: דבר אחד שאני מוותרת עליו, ודבר אחד שאני מחזיקה.', why: 'הבחירה לבחור היא לפעמים הבחירה החשובה ביותר.' },
+    { cat: 'מחשבה', text: 'השלימי: "מה שהיה שונה בי לפני שנה זה..."', why: 'את לא אותה אישה. גם כשנדמה שכן.' },
+    { cat: 'מחשבה', text: 'רשמי מה תרצי שיגידו עלייך בעוד עשר שנים.', why: 'התשובה היא מצפן, לא נבואה.' },
+    { cat: 'מחשבה', text: 'שאלי: "מה הכי מפחיד אותי בלהיות חופשייה?"', why: 'הפחד מחופש הוא הסיבה השכיחה ביותר לתקיעות.' },
+    { cat: 'מחשבה', text: 'כתבי שלוש החלטות שאת רוצה לקבל בשנה הקרובה.', why: 'החלטה כתובה היא חצי בחירה.' },
+    { cat: 'מחשבה', text: 'השלימי: "אם הייתי יודעת בוודאות שאני בטוחה, הייתי..."', why: 'מה שאת חוששת ממנו מצביע על מה שאת רוצה.' },
+    { cat: 'מחשבה', text: 'שאלי: "אם הייתי האדם הכי אמיץ בעולם, מה הייתי עושה כרגע?"', why: 'האומץ לא נמצא רחוק. הוא רק ברירת מחדל אחרת.' },
+    { cat: 'מחשבה', text: 'רשמי ערך אחד שחשוב לך, ומעשה אחד היום שיבטא אותו.', why: 'ערכים בלי פעולה הם עיצוב לחלון. גשי הביתה.' },
+    { cat: 'מחשבה', text: 'כתבי לעצמך אישור אחד: "אני זכאית ל..."', why: 'הזכאות שלך לא נתונה לחתימת אף אחד.' },
+    { cat: 'מחשבה', text: 'שאלי: "איפה אני שיקרתי לעצמי השבוע?" בלי להעניש.', why: 'הסכמה עם עצמך היא הצעד הראשון להסכים על משהו אחר.' },
+    { cat: 'מחשבה', text: 'מה ההגדרה שלך לחיים טובים? משפט אחד בלבד.', why: 'אי אפשר להגיע למקום בלי לדעת איפה הוא.' },
+    { cat: 'מחשבה', text: 'כתבי מטרה אחת קטנה לשבוע הקרוב. רק אחת.', why: 'מטרה אחת ברורה עדיפה על עשר מעורפלות.' },
+    { cat: 'מחשבה', text: 'השלימי: "החופש שלי מתחיל ברגע ש..."', why: 'את כותבת את התנאי שלך. את גם יכולה לשנות אותו.' },
+
+    { cat: 'יצירה', text: 'שרבטי משהו על דף. לא ציור, שרבוט. שתי דקות.', why: 'היד יודעת דברים שהראש עוד לא הבין.' },
+    { cat: 'יצירה', text: 'רקדי לשיר אחד. סגרי דלת אם צריך.', why: 'הגוף בתנועה מזכיר לך שאת חיה.' },
+    { cat: 'יצירה', text: 'כתבי שלוש שורות חופשיות. בלי לחשוב, בלי לערוך.', why: 'הצנזורית הפנימית שלך לא הוזמנה כרגע.' },
+    { cat: 'יצירה', text: 'צלמי משהו יפה בעינייך עכשיו. רק לעצמך, לא לפרסם.', why: 'יופי הוא תזכורת שלא כל דבר זקוק לפתרון.' },
+    { cat: 'יצירה', text: 'צבעי משהו. דף, ספל, מה שאת רוצה.', why: 'צבע הוא הבחירה הכי קלה שיש.' },
+    { cat: 'יצירה', text: 'המציאי שם חדש להיום הזה.', why: 'יום עם שם הוא יום ששייך לך.' },
+    { cat: 'יצירה', text: 'סדרי חמישה חפצים בסדר שהוא יפה לך.', why: 'יופי הוא בחירה.' },
+    { cat: 'יצירה', text: 'קראי שיר אחד בקול. רק לעצמך.', why: 'מילים בקול הן מילים אחרות.' },
+    { cat: 'יצירה', text: 'לבשי משהו לא ברירת מחדל. צבע, גזרה, אביזר.', why: 'הבחירה לעצמך בבוקר מקרינה על כל היום.' },
+    { cat: 'יצירה', text: 'חברי שיר קצר על מה שאת מרגישה. שלוש שורות בלבד.', why: 'מילים שלך על המצב שלך - זה כבר טיפול.' },
+    { cat: 'יצירה', text: 'כתבי הייקו: שלוש שורות, 5-7-5 הברות. נסי.', why: 'אילוץ צורני משחרר את התוכן.' },
+    { cat: 'יצירה', text: 'קפלי משהו מנייר. גם אם יוצא עקום.', why: 'תנועות עדינות של היד מורידות חרדה ישירות.' },
+    { cat: 'יצירה', text: 'דמייני זר פרחים: צבעים, ריחות, מקום. רק במחשבה.', why: 'הדמיון יוצר תחושות אמיתיות. הגוף לא מבחין.' },
+    { cat: 'יצירה', text: 'כתבי מתכון להרגיש טוב, כאילו זה מאכל.', why: 'משחק הוא דרך לעקוף את הביקורת הפנימית.' },
+    { cat: 'יצירה', text: 'בחרי שלושה שירים שיהיו פסקול היום שלך.', why: 'גם היום הזה ראוי לסאונדטרק.' },
+    { cat: 'יצירה', text: 'אכלי משהו על צלחת יפה, גם אם זה רק תפוח.', why: 'הצלחת היפה היא מסר שלך אל עצמך: מגיע לי.' },
+    { cat: 'יצירה', text: 'סדרי משהו אסתטי וצלמי. רק לעצמך. בלי לפרסם.', why: 'יצירה שלא מציגים אותה היא היצירה הכי חופשייה.' },
+    { cat: 'יצירה', text: 'כתבי הקדשה בדף ריק. למה שעוד יבוא.', why: 'דפים ריקים הם הצהרת אופטימיות.' },
+    { cat: 'יצירה', text: 'בחרי מילה אחת שתהיה מילת היום. כתבי אותה באותיות גדולות.', why: 'מילה ממוקדת היא עוגן ליום שלם.' },
+
+    { cat: 'זמן', text: 'שבי חמש דקות בלי לעשות שום דבר. רק לשבת.', why: 'לא לעשות זה גם לעשות. וזה גם הכי קשה.' },
+    { cat: 'זמן', text: 'הסתכלי על דבר אחד בחדר במשך דקה. רק להסתכל.', why: 'תשומת לב היא הצורה המעודנת ביותר של אהבה.' },
+    { cat: 'זמן', text: 'סמני ביומן חצי שעה בשבוע הקרוב שתהיה רק שלך.', why: 'כשהזמן נכנס ליומן הוא הופך לקיים. בלי רישום, הוא נדחק.' },
+    { cat: 'זמן', text: 'הקדישי שלוש דקות לשיחה עם עצמך, בקול רם.', why: 'שמיעת הקול שלך מחזירה אותך אלייך.' },
+    { cat: 'זמן', text: 'צאי לסיבוב של חמש דקות. בלי טלפון.', why: 'תנועה בלי כוונה היא בחירה במרחב הפנימי.' },
+    { cat: 'זמן', text: 'שני את הקצב של ההליכה שלך עכשיו. לאט יותר, או מהר יותר.', why: 'הקצב שלך הוא שלך.' },
+    { cat: 'זמן', text: 'אכלי משהו אחד באטיות. ממש לאט. הרגישי טעם.', why: 'נוכחות נכנסת דרך החושים.' },
+    { cat: 'זמן', text: 'סגרי עיניים לדקה. שמעי מה יש מסביב.', why: 'העולם מנגן גם בלי הצפייה שלך.' },
+    { cat: 'זמן', text: 'עצרי כל מה שאת עושה לדקה. רק עצירה.', why: 'עצירה היא לא בזבוז זמן. היא יצירת זמן.' },
+    { cat: 'זמן', text: 'הוסיפי דקה של "כלום" בין שני דברים שאת עושה.', why: 'הפערים הם המקום שבו את חיה.' },
+    { cat: 'זמן', text: 'אכלי בלי מסך. רק את האוכל.', why: 'נוכחות באוכל היא תרגיל בחירה בכל ביס.' },
+    { cat: 'זמן', text: 'הלכי באיטיות מכוונת שלוש דקות.', why: 'הקצב הפנימי שלך חוזר כשהקצב החיצוני מאט.' },
+    { cat: 'זמן', text: 'שבי במקום שאת לא יושבת בו בדרך כלל. חמש דקות.', why: 'נקודת מבט חדשה משנה פתאום הכל.' },
+    { cat: 'זמן', text: 'עשי דבר אחד שאת בדרך כלל מהירה בו, באטיות.', why: 'מהירות זו לא מעלה. נוכחות זה כן.' },
+    { cat: 'זמן', text: 'הקצבי לעצמך עשר דקות בלי לוח זמנים. כאוס מבוקר.', why: 'חופש מתחיל בעשר דקות שאת מחליטה שאין בהן כלום.' },
+    { cat: 'זמן', text: 'סגרי טאב אחד בדפדפן. רק אחד.', why: 'סגירה דיגיטלית היא סגירה אמיתית.' },
+    { cat: 'זמן', text: 'השמיעי שיר אחד מההתחלה ועד הסוף. בלי לדפדף.', why: 'שיר שלם הוא תרגול בנוכחות לרצף.' },
+    { cat: 'זמן', text: 'אכלי דבר אחד עם עיניים עצומות. הרגישי במלואו.', why: 'חוש אחד שמושבת מעצים את היתר.' },
+    { cat: 'זמן', text: 'שתי משהו חם בלי לעשות עוד דבר במקביל.', why: 'מולטיטסקינג גונב טעם. ומחיים.' },
+    { cat: 'זמן', text: 'ספרי לאחור מ-30 ל-1 בקצב איטי, בקול.', why: 'הספירה מקרקעת. הקול מעמיק.' },
+  ];
+
+  const QUOTES = [
+    'כשאת מרגישה שאין לך בחירה, יש לך עדיין בחירה אחת קטנה. תמיד.',
+    'הצעד הקטן הוא לא קטן. הוא הוכחה שאת חופשייה.',
+    'חופש לא בא בצעקה. הוא בא בבחירה קטנה.',
+    'בחירה אחת קטנה היא דלת שאי אפשר לסגור.',
+    'את לא נדרשת לפתור. את נדרשת לבחור.',
+    'ההפך של תקיעות זה לא תנועה גדולה. זה תנועה אחת.',
+    'מי שבוחרת קטן כל יום, חופשייה גדול כל שנה.',
+    'החופש נמצא בפער שבין מה שקורה לבין מה שאת בוחרת לעשות איתו.',
+    'כשנדמה שכל הדלתות סגורות, חפשי את חלון הצוהר.',
+    'בחירה היא לא אירוע. היא שריר.',
+    'מה שאת בוחרת עכשיו, מעצב את מי שאת תהיי בעוד שעה.',
+    'את לא רכוש של הסיפור שלך. את הכותבת שלו.',
+  ];
+
+  const AFFIRMATIONS = [
+    'יפה. בחרת. זה לא קטן כמו שזה נראה.',
+    'הצעד הזה עכשיו הוא הוכחה. את חופשייה.',
+    'בחירה אחת ביום היא חיים אחרים בשנה.',
+    'הגוף שלך זוכר. את לא צריכה להתאמץ להזכיר.',
+    'את לא חוזרת לאותה רוטינה. את כותבת חדשה.',
+    'זה נחשב. הכל נחשב. במיוחד הקטן.',
+    'כל הכבוד. רגע אחד שונה שינה משהו.',
+    'מה שעשית עכשיו, אף אחת לא יכולה לקחת ממך.',
+    'את בונה שריר. הוא יזכור.',
+    'חופש מתחיל בדיוק ככה. בדיוק עכשיו.',
+    'הוכחת לעצמך שיש לך. לא הוכחת לאף אחד אחר.',
+    'צעד אחד פחות תקיעות בעולם.',
+  ];
+
+  const CATEGORIES = ['הכל', 'גוף', 'רגש', 'סביבה', 'קשרים', 'מחשבה', 'יצירה', 'זמן'];
+
+  let activeFilter = 'הכל';
+  let lastChoice = null;
+  let count = 0;
+  let firstReveal = true;
+
+  function loadState() {
+    try {
+      const total = localStorage.getItem('one_choice_total');
+      if (total) {
+        count = parseInt(total, 10) || 0;
+        document.getElementById('count').textContent = count;
+      }
+    } catch (e) {}
+    try {
+      const filter = localStorage.getItem('one_choice_filter');
+      if (filter && CATEGORIES.includes(filter)) {
+        activeFilter = filter;
+      }
+    } catch (e) {}
+  }
+  function saveCount() {
+    try { localStorage.setItem('one_choice_total', String(count)); } catch (e) {}
+  }
+  function saveFilter() {
+    try { localStorage.setItem('one_choice_filter', activeFilter); } catch (e) {}
+  }
+
+  function pickChoice() {
+    const pool = activeFilter === 'הכל'
+      ? CHOICES
+      : CHOICES.filter(c => c.cat === activeFilter);
+    if (pool.length === 0) return CHOICES[0];
+
+    let next;
+    let tries = 0;
+    do {
+      next = pool[Math.floor(Math.random() * pool.length)];
+      tries++;
+    } while (next === lastChoice && pool.length > 1 && tries < 10);
+
+    lastChoice = next;
+    return next;
+  }
+
+  function revealChoice(choice) {
+    if (firstReveal) {
+      document.getElementById('hero').classList.add('hidden');
+      document.getElementById('ctaWrap').classList.add('hidden');
+      document.getElementById('cardWrap').classList.remove('hidden');
+      document.getElementById('actions').classList.remove('hidden');
+      firstReveal = false;
+    }
+
+    const card = document.getElementById('card');
+    card.classList.add('entering');
+
+    setTimeout(() => {
+      document.getElementById('cardCat').textContent = '— ' + choice.cat + ' —';
+      document.getElementById('cardChoice').textContent = choice.text;
+      document.getElementById('cardWhy').textContent = choice.why;
+      requestAnimationFrame(() => card.classList.remove('entering'));
+    }, 230);
+
+    document.getElementById('affirmation').classList.remove('show');
+  }
+
+  function buildCategories() {
+    const container = document.getElementById('categories');
+    container.innerHTML = '';
+    CATEGORIES.forEach(cat => {
+      const chip = document.createElement('button');
+      chip.className = 'cat-chip' + (cat === activeFilter ? ' active' : '');
+      chip.textContent = cat;
+      chip.onclick = () => {
+        activeFilter = cat;
+        document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        saveFilter();
+        if (!firstReveal) revealChoice(pickChoice());
+      };
+      container.appendChild(chip);
+    });
+  }
+
+  function setRandomQuote() {
+    document.getElementById('quote').textContent = '“ ' + QUOTES[Math.floor(Math.random() * QUOTES.length)] + ' ”';
+  }
+
+  function init() {
+    setRandomQuote();
+    document.getElementById('ctaBtn').onclick = () => revealChoice(pickChoice());
+    document.getElementById('anotherBtn').onclick = () => revealChoice(pickChoice());
+    document.getElementById('doneBtn').onclick = () => {
+      count++;
+      document.getElementById('count').textContent = count;
+      saveCount();
+      const aff = document.getElementById('affirmation');
+      aff.textContent = AFFIRMATIONS[Math.floor(Math.random() * AFFIRMATIONS.length)];
+      aff.classList.add('show');
+    };
+    loadState();
+    buildCategories();
+  }
+
+  init();
+</script>
+</body>
+</html>
